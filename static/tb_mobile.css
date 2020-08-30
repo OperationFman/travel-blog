@@ -1,0 +1,173 @@
+.video-player {
+  z-index: 1;
+}
+
+.sidebar{
+  position: fixed;
+  width: 100%;
+  height: 525px;
+  top: -490px;
+  background: #1E1F21;
+  transition: top 0.6s ease;
+  padding-top: 25px;
+  z-index: 3;
+}
+.sidebar.show{
+  top: 0px;
+}
+
+.btn{
+  position: absolute;
+  bottom: 0px;
+  height: 45px;
+  width: 100%;
+  cursor: pointer;
+  transition: left 0.4s ease;
+  display: inline-block;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 25px;
+  height: 2px;
+  background-color: #E7E7E7;
+  margin: 6px 0px 0px 15px;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+div.selfie {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 0px;
+  width: 0px;
+}
+nav ul {
+  margin: 0px 0px 0px 50px;
+}
+
+nav ul li{
+  list-style: none;
+  padding: 15px 0px 15px 0px;
+  border-bottom: 0.5px solid #E7E7E7;
+  margin-right: 30%;
+  font-size: 15px;
+}
+
+nav ul li:last-child {
+    border: 0;
+}
+
+nav ul li a{
+  color: #E7E7E7;
+  text-decoration: none;
+}
+
+nav ul li a:hover{
+  color: silver;
+  transition: 0.2s ease;
+}
+
+.dogpic {
+  content:url(../static/images/Homebase/dogpic.jpg);
+  height: 155px;
+  width: 250px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+
+.left-column-float-left {
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 0px;
+}
+
+.flag-heading {
+  height: 20vh;
+  width: 100%;
+  top: 35px;
+  background-position: center;
+  background-size: 720px;
+  background-repeat: no-repeat;
+  margin-bottom: 2vh;
+}
+
+.flag-heading h1 {
+  padding-top: 80px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.divider {
+  margin-top: 8vh;
+  margin-bottom: 10vh;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.mobile-image {
+  margin-top: 10vh;
+  margin-bottom: 4vh;
+}
+
+.mobile-image img{
+  width: 250px;
+  height: 155px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.maincontent h1 {
+  font-size: 15px;
+}
+
+.maincontent p {
+  font-size: 10px;
+}
+
+.about {
+  margin: 0 auto;
+}
+
+.column img {
+  display: none;
+}
+.left-column-float-right {
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.right-column {
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.right-column video {
+  display: none;
+}
+
+
+#quote {
+  display: none;
+}
+#watch-vid {
+  display: none;
+}
+
+#motchi {
+  display: none;
+}

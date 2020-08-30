@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>{{page_title}}</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='tb_overall.css')}}" />
+  <link rel="stylesheet" media="screen and (min-width: 721px)" href="{{url_for('static', filename='tb_web.css')}}" />
+  <link rel="stylesheet" media="screen and (max-width: 720px)" href="{{url_for('static', filename='tb_mobile.css')}}" />
+  <link rel="icon" href="../static/images/Homebase/icon.png">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% block extrahead %}
+  {% endblock %}
+
+  <nav class="sidebar">
+    <div class="btn" onclick="crossit(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <a href="https://www.linkedin.com/in/franklin-greaves-moon-23572518a/" target="_blank">
+      <div class="selfie"></div>
+    </a>
+    <ul>
+      <li><a href="{{ url_for('home')}}">HOME</a></li>
+      <li><a href="{{ url_for('map')}}">MAP</a></li>
+    </ul>
+    <br>
+    <ul>
+      <li><a href="{{ url_for('japan')}}">JAPAN</a></li>
+      <li><a href="{{ url_for('newzealand')}}">NEW ZEALAND</a></li>
+      <li><a href="{{ url_for('singapore')}}">SINGAPORE</a></li>
+      <li><a href="{{ url_for('malaysia')}}">MALAYSIA</a></li>
+      <li><a href="{{ url_for('bali')}}">INDONESIA (BALI)</a></li>
+      <li><a href="{{ url_for('nepal')}}">NEPAL</a></li>
+      <li><a href="{{ url_for('china')}}">CHINA</a></li>
+    </ul>
+  </nav>
+</head>
+
+<body>
+  {% block body %}
+  {% endblock %}
+
+  <footer>
+    <p>2020 | Moon Electrix Media Company | <a href="https://github.com/OperationFman" target="_blank">Github</a></p>
+  </footer>
+
+  <script>
+    $('.btn').click(function() {
+      $(this).toggleClass("click");
+      $('.sidebar').toggleClass("show");
+    });
+
+    function crossit(x) {
+      x.classList.toggle("change");
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<style>
+  body {
+    overflow: hidden;
+  }
+
+  #map-container {
+    height: 110vh;
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    height: inherit;
+    border: 0.0001px solid #1A1A1AFF;
+  }
+</style>
+
+
+{% endblock %}
+
+{% block body %}
+<div id=map-container>
+  <iframe src="{{url_for('static', filename='mapbox.html')}}" title="WorldMapTravels">
+  </iframe>
+</div>
+
+{% endblock %}

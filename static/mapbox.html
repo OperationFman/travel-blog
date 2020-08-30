@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title></title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1A1A1AFF;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .marker {
+      background-image: url('images/Map/MapMarker.png');
+      transform: rotate(30deg);
+      top: -2%;
+      background-size: cover;
+      width: 10px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .marker:hover{
+      width: 15px;
+      height: 40px;
+      color: red;
+      background-image: url('images/Map/Bling.png');
+      transition: 0.2s ease;
+    }
+
+    .mapboxgl-popup {
+      width: 200px;
+    }
+
+    .mapboxgl-popup-content {
+      text-align: center;
+      color: #E7E7E7;
+      background-color: #343331FF;
+      border: 0.1px solid grey;
+      box-shadow: 20px grey;
+      transition: 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id='map'></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3BlcmF0aW9uZm1hbiIsImEiOiJja2Uya3JzM3YwYTdiMzFueWNlbDFkYThhIn0.ArqrjJH74SMbvVq4-HbQXw';
+
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/dark-v10',
+      center: [120, -26],
+      zoom: 2.7,
+      pitch: 40, // pitch in degrees
+      bearing: -10 // bearing in degrees
+    });
+
+    var geojson = {
+      type: 'FeatureCollection',
+      features: [{
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [172.639, -43.532]
+          },
+          properties: {
+            title: 'Antarctic Centre',
+            description: 'Christchurch, New Zealand',
+            filepath: 'images/Map/NewZealand/AntarcticCentre.jpg',
+            imagealt: 'The Hagland Mounting an Obstacle'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [170.476, -44.004]
+          },
+          properties: {
+            title: 'Church of the Good Shepherd',
+            description: 'Lake Tekapo, New Zealand',
+            filepath: 'images/Map/NewZealand/Tekapo.jpg',
+            imagealt: 'The stunning Blue Waters and Flowers'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [168.661, -45.030]
+          },
+          properties: {
+            title: 'FergBurger',
+            description: 'Queenstown, New Zealand',
+            filepath: 'images/Map/NewZealand/FergBurger.jpg',
+            imagealt: 'Mighty meal from the legendary fergburger'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [168.641, -45.020]
+          },
+          properties: {
+            title: 'The Luge',
+            description: 'Queenstown, New Zealand',
+            filepath: 'images/Map/NewZealand/Queenstown.jpg',
+            imagealt: 'Just a pic of me'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [170.141, -43.595]
+          },
+          properties: {
+            title: 'Mount Doom',
+            description: 'Canterbury, New Zealand',
+            filepath: 'images/Map/NewZealand/MtCook.jpg',
+            imagealt: 'Me and the boys hiking the valley'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [168.828, -44.942]
+          },
+          properties: {
+            title: 'Quad Bike Adventures',
+            description: 'Arrowhead, New Zealand',
+            filepath: 'images/Map/NewZealand/Arrowhead.jpg',
+            imagealt: 'Me and the boys mounted on quads'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [115.290, -8.575]
+          },
+          properties: {
+            title: 'White Water Rafting',
+            description: 'Tegenungan Waterfall, Bali',
+            filepath: 'images/Map/Bali/raft.jpg',
+            imagealt: 'Kee and I getting wet and wild'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [115.253, -8.657]
+          },
+          properties: {
+            title: 'Big Garden Corner',
+            description: 'Denpasar, Bali',
+            filepath: 'images/Map/Bali/Corner.jpg',
+            imagealt: 'Kee walking through the gardens'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [115.088, -8.814]
+          },
+          properties: {
+            title: 'Hindu Sea Temple',
+            description: 'Uluwatu Temple, Bali',
+            filepath: 'images/Map/Bali/Temple.jpg',
+            imagealt: 'The massive cliffs of Uluwatu Temple'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [113.321, 23.107]
+          },
+          properties: {
+            title: 'Canton Tower',
+            description: 'Guangzhou, China',
+            filepath: 'images/Map/China/Canton.jpg',
+            imagealt: 'Canton Tower'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [110.696, 29.398]
+          },
+          properties: {
+            title: 'Worlds Largest Glass Suspension Bridge',
+            description: 'Zhangjiajie, China',
+            filepath: 'images/Map/China/GlassBridge.jpg',
+            imagealt: 'Glass Suspension Bridge'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [113.045, 28.071]
+          },
+          properties: {
+            title: 'Mao University Monument',
+            description: 'Changsha, China',
+            filepath: 'images/Map/China/Mao.jpg',
+            imagealt: 'Mao Monument'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [110.480, 29.046]
+          },
+          properties: {
+            title: 'Avatar Mountains',
+            description: 'Tianmen Mountain, China',
+            filepath: 'images/Map/China/Mountain.jpg',
+            imagealt: 'Tianmen Mountain'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [113.674, 24.774]
+          },
+          properties: {
+            title: 'Shaoguan University',
+            description: 'Shaoguan, China',
+            filepath: 'images/Map/China/ShaoguanUni.jpg',
+            imagealt: 'Shaoguan University'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [115.858, 28.682]
+          },
+          properties: {
+            title: 'Sunset Canals',
+            description: 'Nanchang, China',
+            filepath: 'images/Map/China/Sunset.jpg',
+            imagealt: 'The massive cliffs of Uluwatu Temple'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [101.684, 3.237]
+          },
+          properties: {
+            title: 'Batu Caves',
+            description: 'Kuala Lumpur, Malaysia',
+            filepath: 'images/Map/Malaysia/Batu.jpg',
+            imagealt: 'Batu Caves'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [101.300, 3.356]
+          },
+          properties: {
+            title: 'Monkeying Around',
+            description: 'Kuala Selangor, Malaysia',
+            filepath: 'images/Map/Malaysia/Monkeys.jpg',
+            imagealt: 'Monkey Mountain'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [101.711, 3.157]
+          },
+          properties: {
+            title: 'Petronas Twin Towers',
+            description: 'Kuala Lumpur, Malaysia',
+            filepath: 'images/Map/Malaysia/Petronas.jpg',
+            imagealt: 'Petronas Twin Towers'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [103.866, 1.283]
+          },
+          properties: {
+            title: 'Cloud Forest',
+            description: 'Singapore',
+            filepath: 'images/Map/Singapore/Singapore.jpg',
+            imagealt: 'Petronas Twin Towers'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [83.872, 28.612]
+          },
+          properties: {
+            title: 'Mount Annapurna',
+            description: 'Narchyang, Nepal',
+            filepath: 'images/Map/Nepal/Annapurna.jpg',
+            imagealt: 'Mount Annapurna Treking'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [85.324, 27.717]
+          },
+          properties: {
+            title: 'Pashupatinath Temple',
+            description: 'Kathmandu, Nepal',
+            filepath: 'images/Map/Nepal/Kathmandu.jpg',
+            imagealt: 'Posing in Kathmandu'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [85.290, 27.714]
+          },
+          properties: {
+            title: 'Mswayambhu Mahachaitya Temple',
+            description: 'Kathmandu, Nepal',
+            filepath: 'images/Map/Nepal/Monkeys.jpg',
+            imagealt: 'Monkeys Temple'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [85.550, 27.618]
+          },
+          properties: {
+            title: 'Himalayas',
+            description: 'Dhulikel, Nepal',
+            filepath: 'images/Map/Nepal/Mountain.jpg',
+            imagealt: 'Himalayas from Dhulikel'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [83.957, 28.210]
+          },
+          properties: {
+            title: 'Tech Literacy Volunteering',
+            description: 'Pokhara, Nepal',
+            filepath: 'images/Map/Nepal/Pokhara.jpg',
+            imagealt: 'Petronas Twin Towers'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [120.984, 14.599]
+          },
+          properties: {
+            title: '5 minutes in Manila',
+            description: 'Manila, Philippines',
+            filepath: 'images/Map/Philippines/Jeep.jpg',
+            imagealt: 'Manila Jeep'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [132.993, 34.3089]
+          },
+          properties: {
+            title: 'Bunny Island',
+            description: 'Okunoshima, Japan',
+            filepath: 'images/Map/Japan/Bunnies.jpg',
+            imagealt: 'Bunny Noms'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [132.453, 34.395]
+          },
+          properties: {
+            title: 'Atomic Bomb Dome',
+            description: 'Hiroshima, Japan',
+            filepath: 'images/Map/Japan/Dome.jpg',
+            imagealt: 'Atomic Bomb Dome'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [135.774, 34.966]
+          },
+          properties: {
+            title: 'Fox Shrine (Fushimi Inari Taisha)',
+            description: 'Kyoto, Japan',
+            filepath: 'images/Map/Japan/Fox.jpg',
+            imagealt: 'Fox Shrine'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [138.832, 35.460]
+          },
+          properties: {
+            title: 'Mount Fuji',
+            description: 'Oshino Hakkai, Japan',
+            filepath: 'images/Map/Japan/Fuji.jpg',
+            imagealt: 'Mount Fuji'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [135.519, 34.705]
+          },
+          properties: {
+            title: 'Sakura Cherry Blossoms',
+            description: 'Osaka, Japan',
+            filepath: 'images/Map/Japan/Sakura.jpg',
+            imagealt: 'Sakuranomiya Park'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [139.700, 35.659]
+          },
+          properties: {
+            title: 'Shibuya Scramble Crossing',
+            description: 'Tokyo, Japan',
+            filepath: 'images/Map/Japan/Shibuya.jpg',
+            imagealt: 'Shibuya Corssing'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [139.810, 35.710]
+          },
+          properties: {
+            title: 'Skytree',
+            description: 'Tokyo, Japan',
+            filepath: 'images/Map/Japan/Skytree.jpg',
+            imagealt: 'Tokyo Skytree'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [144.489, -38.280]
+          },
+          properties: {
+            title: 'Skydiving on my 21st',
+            description: 'Geelong, Australia',
+            filepath: 'images/Map/Australia/Melbourne.jpg',
+            imagealt: 'Skydiving'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [115.726, -31.760]
+          },
+          properties: {
+            title: 'Appointment with the <br>3 o-clock Doc',
+            description: 'Perth, Australia',
+            filepath: 'images/Map/Australia/Perth.jpg',
+            imagealt: 'Parth pose'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [147.132, -41.436]
+          },
+          properties: {
+            title: 'Chess Match in Launceston',
+            description: 'Tasmania, Australia',
+            filepath: 'images/Map/Australia/Tassie.jpg',
+            imagealt: 'Chess in Tasmania'
+          }
+        },
+      ]
+    };
+
+    // add markers to map
+    geojson.features.forEach(function(marker) {
+
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(new mapboxgl.Popup({
+            offset: 25
+          }) // add popups
+          .setHTML('<img src="' + marker.properties.filepath + '" alt="' + marker.properties.imagealt + '"style="width: 180px; height: 120px; border-radius: 2%;"/><h3>' + marker.properties.title + '</h3><p>' + marker.properties.description +
+            '</p>'))
+        .addTo(map);
+    });
+  </script>
+</body>
+
+</html>

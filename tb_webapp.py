@@ -40,4 +40,4 @@ def china():
     return render_template('china.html', page_title='Frankly China')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)

@@ -84,7 +84,7 @@ nav ul li a:hover{
   width: 250px;
   text-align: center;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -162,8 +162,13 @@ nav ul li a:hover{
 
 
 #quote {
-  display: none;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 12vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
 }
+
 #watch-vid {
   display: none;
 }

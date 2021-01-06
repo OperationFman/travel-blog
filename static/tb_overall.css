@@ -1,8 +1,8 @@
 * {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  user-select: none;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    user-select: none;
 }
 
 body {
@@ -11,50 +11,50 @@ body {
 }
 
 p {
-  font-size: 14px;
-  font-weight: normal;
+    font-size: 14px;
+    font-weight: normal;
 }
 
 h1 {
-  font-size: 20px;
-  font-weight: normal;
+    font-size: 20px;
+    font-weight: normal;
 }
 
 .about {
-  width: 200px;
-  height: 40px;
-  text-align: center;
-  border-radius: 4px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .about p {
-  margin-top: 11px;
+    margin-top: 11px;
 }
 
 .about a {
-  color: #E7E7E7;
-  text-decoration: none;
+    color: #E7E7E7;
+    text-decoration: none;
 }
 
-.about a:hover{
-  color: silver;
-  transition: 0.2s ease;
+.about a:hover {
+    color: silver;
+    transition: 0.2s ease;
 }
 
 footer {
-  background: #1E1F21;
-  position: relative;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  padding: 20px;
-  text-align: center;
+    background: #1E1F21;
+    position: relative;
+    bottom: 0%;
+    right: 0px;
+    left: 0px;
+    padding: 20px;
+    text-align: center;
 }
 
 footer p {
-  color: #E7E7E7;
+    color: #E7E7E7;
 }
 
 footer a {
-  color: #E7E7E7;
+    color: #E7E7E7;
 }

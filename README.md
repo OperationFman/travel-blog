@@ -31,3 +31,22 @@ The remaining content is info and images of my trips, the arrangement will depen
 ![Content](https://user-images.githubusercontent.com/42459707/112563145-e6fd5780-8e2c-11eb-8d20-e821164ea0f7.PNG)
 
 These videos are hosted on Google Drive to save on bandwidth (And thus deployment costs) and are 20-30 minutes edited works of my time overseas, usually with friends.
+
+
+
+## Installation
+* Clone or download the repo
+* Ensure you have Python installed
+* Pip install flask
+* Run the main app.py
+
+
+
+## Tech Stack
+* Python 3.8
+* Flask 1.1.2
+* HTML/CSS
+* Javascript with Jquery
+* Mapbox
+* GoogleDrive
+* PythonAnywhere

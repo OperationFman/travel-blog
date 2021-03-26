@@ -3,7 +3,7 @@ This is my travel blog, hosted here: https://frankstravelblog.pythonanywhere.com
 
 I created it to show off images, videos and tell stories of my travels overseas, this also serves to demonstrate my basic web-design skills.
 
-The home page contains a bio about me with a link to my (Now likely outdated) resume.
+The home page contains a bio about me with a link to my (Now likely outdated) resume. It's also in darkmode because I like it.
 
 
 

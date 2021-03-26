@@ -9,7 +9,7 @@ The home page contains a bio about me with a link to my (Now likely outdated) re
 
 ![Home](https://user-images.githubusercontent.com/42459707/112563135-e4026700-8e2c-11eb-8376-28cdabac503d.PNG)
 
-The site also supports Web and mobile screen sizes.
+Additionally the site supports desktop and mobile screen sizes.
 
 
 

@@ -1,7 +1,7 @@
 ## Context 
 This is my travel blog, hosted here: https://frankstravelblog.pythonanywhere.com/
 
-I created it to show off images, videos and tell stories of my travels overseas, this also serves to demonstrate my basic web-design skills.
+I created it to show off images, videos and tell stories of my travels overseas, it also serves to demonstrate my basic web-design skills.
 
 The home page contains a bio about me with a link to my (Now likely outdated) resume and is in darkmode because I like it.
 
@@ -25,7 +25,7 @@ The map link will open an interactive view of earth with icons containing images
 
 
 
-The remaining content is info and images of my trips, the arrangement will depend on wether the user is viewing in mobile or desktop mode.
+The remaining content is info and images of my trips, the arrangement will depend again on wether the user is viewing in mobile or desktop mode.
 
 ![Video](https://user-images.githubusercontent.com/42459707/112563141-e5339400-8e2c-11eb-9992-4fce128a8659.PNG)
 ![Content](https://user-images.githubusercontent.com/42459707/112563145-e6fd5780-8e2c-11eb-8d20-e821164ea0f7.PNG)

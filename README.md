@@ -1,5 +1,5 @@
 ## Context 
-This is my travel blog, hosted here: https://frankstravelblog.pythonanywhere.com/
+This is my travel blog, hosted here: https://frankstravelblog.pythonanywhere.com/ 
 
 I created it to show off images, videos and tell stories of my travels overseas, it also serves to demonstrate my basic web-design skills.
 
